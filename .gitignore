@@ -1,10 +1,14 @@
-#general unneeded files/folders
-/.vscode
-*.exe
-**/data.txt
-**/test.txt
-**/output.txt
+# IDE
+.vscode
+.idea
 
-#Unneed haskell file types
+Geenrated
+*.pyc
 *.hi
+
+Executable
 *.o
+*.exe
+
+Data
+*.txt
