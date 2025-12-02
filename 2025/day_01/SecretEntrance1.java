@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class SecretEntranceOne {
+public class SecretEntrance1 {
     static int getPassword(ArrayList<String> lines){
         int dial = 50;
         int zeros_num = 0;
