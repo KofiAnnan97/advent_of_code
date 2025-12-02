@@ -2,13 +2,13 @@
 .vscode
 .idea
 
-Geenrated
+# Generated files
 *.pyc
 *.hi
 
-Executable
+# Executables
 *.o
 *.exe
 
-Data
+# Data
 *.txt
