@@ -22,7 +22,6 @@ public class SecretEntrance2 {
         for(int i = 0; i < lines.size(); i++){
             char direction = lines.get(i).charAt(0);
             int val = Integer.parseInt(lines.get(i).substring(1));
-            int initDial = dial;
             int[] state = zerosFromTicks(direction, val, dial);
             zeros_num += state[0];
             dial = state[1];
