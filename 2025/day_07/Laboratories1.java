@@ -69,7 +69,7 @@ public class Laboratories1 {
         } catch (FileNotFoundException e) {
             System.out.println("Could not find file.");
         }
-        System.out.printf("Answer: %d",computeOutput(lines));
+        System.out.printf("Answer: %d\n",computeOutput(lines));
         // Answer is 1638
     }
 }
