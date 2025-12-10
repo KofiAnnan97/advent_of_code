@@ -4,7 +4,7 @@ import java.util.*;
 public class MovieTheater1 {  
     
     static long getArea(long[]a, long[]b){
-        return Math.abs(a[0]-b[0]+1) * Math.abs(a[1] - b[1]+1);
+        return (Math.abs(a[0]-b[0])+1) * (Math.abs(a[1] - b[1])+1);
     }
 
     static ArrayList<long[]> getPts(ArrayList<String> lines){
@@ -28,7 +28,10 @@ public class MovieTheater1 {
                 }
                 else{
                     long area = getArea(pts.get(i), pts.get(j));
-                    if(area > largestRect) largestRect = area;
+                    if(area > largestRect) {
+                        largestRect = area;
+                        //System.out.printf("(%d,%d) (%d,%d)\n", pts.get(i)[0], pts.get(i)[1], pts.get(j)[0], pts.get(j)[1]);
+                    }
                 }
             }
         }
