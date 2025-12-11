@@ -1,14 +1,27 @@
 import java.io.*;
 import java.util.*;
 
-public class GiftShop1 {
+public class GiftShop2 {
     static boolean isIDInvalid(long val){
+        boolean doesMatch = true;
         String valStr = Long.toString(val);
-        if(valStr.length()%2 != 0) return false;
-        String firstSegment = valStr.substring(0, valStr.length()/2);
-        String secondSegment = valStr.substring(valStr.length()/2);
-        //System.out.printf("%s v. %s\n", firstSegment, secondSegment);
-        return firstSegment.equals(secondSegment);
+        int segmentSize = 1;
+        while(segmentSize <= valStr.length()/2){
+            String checkSegment = valStr.substring(0, segmentSize);
+            doesMatch = true;
+            for(int i = segmentSize; i < valStr.length(); i+=segmentSize){
+                int endIdx = i+segmentSize < valStr.length() ? i+segmentSize : valStr.length();
+                String nextSegment = valStr.substring(i, endIdx);
+                //System.out.printf("%s == %s\n", checkSegment, nextSegment);
+                if(!checkSegment.equals(nextSegment)){
+                    doesMatch = false;
+                    break;
+                }
+            }
+            if(doesMatch) return true;
+            segmentSize++;
+        }
+        return false;
     }
     static long getInvalidIDSum(String aStr, String bStr){
         long invalidSum = 0;
@@ -17,7 +30,7 @@ public class GiftShop1 {
         for(long j= a; j <= b; j++){
             if(isIDInvalid(j)){
                 invalidSum += j;
-                //System.out.println(j);
+                //System.out.println("Invalid: " + j);
             }
         }
         return invalidSum;
@@ -34,7 +47,7 @@ public class GiftShop1 {
         return sum;
     }
     public static void main(String[] args){
-        File file = new File(".\\data.txt");
+        File file = new File("data.txt");
         String line = "";
         try (Scanner scan = new Scanner(file)){
             line = scan.nextLine();
@@ -42,6 +55,6 @@ public class GiftShop1 {
             System.out.println("Could not find file.");
         }
         System.out.printf("Answer: %d",computeOutput(line));
-        // Answer is 21898734247
+        // Answer is 28915664389
     }
 }

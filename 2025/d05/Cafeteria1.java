@@ -38,7 +38,7 @@ public class Cafeteria1 {
         return sum;
     }
     public static void main(String[] args){
-        File file = new File(".\\data.txt");
+        File file = new File("data.txt");
         ArrayList<String> lines = new ArrayList<>();
         try (Scanner scan = new Scanner(file)){
             while(scan.hasNextLine())
