@@ -26,14 +26,12 @@ public class Reactor1 {
         long count = 0;
         while(!q.isEmpty()){
             ArrayList<String> path = q.poll();
-            //System.out.println(path);
             String curr = path.get(path.size()-1);
-
             if(curr.equals(goal)) count++;
-
-            if(graph.get(curr) != null){
+            else if(!graph.containsKey(curr)) continue;
+            else {
                 for(String adj: graph.get(curr)){
-                    ArrayList<String> newPath = new ArrayList<>();
+                    ArrayList<String> newPath = new ArrayList<>(path);
                     newPath.add(adj);
                     q.add(newPath);
                 }
@@ -44,8 +42,6 @@ public class Reactor1 {
 
     static long computeOutput(ArrayList<String> lines){
         HashMap<String, HashSet<String>> graph = getGraph(lines);
-        //System.out.println(graph);
-        
         long sum = getNumOfPaths(graph, START, GOAL);
         return sum;
     }
